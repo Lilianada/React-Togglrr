@@ -116,8 +116,8 @@ export default function DocsSidebar() {
                         className={cn(
                           "block py-1 px-2 text-sm rounded-md",
                           pathname === item.href
-                            ? "bg-primary/10 text-primary font-medium"
-                            : "text-muted-foreground hover:text-foreground hover:bg-accent",
+                            ? "text-primary font-medium"
+                            : "text-muted-foreground hover:text-foreground ",
                         )}
                       >
                         {item.title}

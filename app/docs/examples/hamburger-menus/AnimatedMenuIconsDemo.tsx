@@ -48,7 +48,7 @@ export default function AnimatedMenuIconDemo({ title, description, component: Co
             <Component isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} />
           </div>
 
-          <div className="relative bg-muted">
+          <div className="relative">
             <div className="absolute right-2 top-2 flex space-x-2 z-10">
               <Button
                 variant="outline"
@@ -66,7 +66,7 @@ export default function AnimatedMenuIconDemo({ title, description, component: Co
               <SyntaxHighlighter
                 language="jsx"
                 style={vscDarkPlus}
-                customStyle={{ margin: 0, borderRadius: "0.375rem", backgroundColor: "#232323" }}
+                customStyle={{ margin: 0, borderRadius: "0.5rem", backgroundColor: "#232323", padding: "1.5rem 1rem" }}
               >
                 {processedCode}
               </SyntaxHighlighter>
