@@ -2,7 +2,8 @@
 
 export default function ApiPageClient() {
   return (
-    <div className="max-w-3xl">
+    <div className="container mx-auto py-8 px-0 max-w-7xl sm:grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="col-span-3">
       <h1 className="text-3xl font-bold mb-6">API Reference</h1>
 
       <div className="prose prose-zinc dark:prose-invert max-w-none">
@@ -212,6 +213,7 @@ export const ElasticHamburger = ({ isOpen, ...props }) => {
   )
 }`}</pre>
         </div>
+      </div>
       </div>
     </div>
   )

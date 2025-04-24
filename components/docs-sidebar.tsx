@@ -51,6 +51,8 @@ const navSections: NavSection[] = [
   },
 ]
 
+
+
 export default function DocsSidebar() {
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -89,11 +91,10 @@ export default function DocsSidebar() {
         )}
       >
         {/* Sidebar header */}
-        <div className="p-6 border-b border-border flex gap-2 items-center">
+        <div className="p-6 border-b border-border">
           <Link href="/" className="flex items-center">
             <div className="font-semibold text-lg">Togglrr</div>
           </Link>
-          <p className="text-sm text-muted-foreground">by Lilian Ada</p>
         </div>
 
         {/* Sidebar content */}

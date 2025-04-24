@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { CopyIcon, CheckIcon } from "lucide-react"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism"
-import { HamburgerSpin } from "./hamburger-components/HamburgerSpin"
+import { HamburgerSpin } from "../examples/components/hamburger-components/HamburgerSpin"
 
 {/*import { HamburgerSquash } from "./hamburger-components/HamburgerSquash"
 import { HamburgerSlide } from "./hamburger-components/HamburgerSlide"

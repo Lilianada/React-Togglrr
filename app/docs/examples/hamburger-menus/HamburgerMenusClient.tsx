@@ -1,15 +1,6 @@
 "use client"
 
-import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { CopyIcon, CheckIcon } from "lucide-react"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism"
 import { HamburgerSpin } from "../components/hamburger-components/HamburgerSpin"
-
-// These components will be implemented later
-/*
 import { HamburgerSquash } from "../components/hamburger-components/HamburgerSquash"
 import { HamburgerSlide } from "../components/hamburger-components/HamburgerSlide"
 import { HamburgerCross } from "../components/hamburger-components/HamburgerCross"
@@ -19,244 +10,215 @@ import { HamburgerCollapse } from "../components/hamburger-components/HamburgerC
 import { HamburgerRotate } from "../components/hamburger-components/HamburgerRotate"
 import { HamburgerSpring } from "../components/hamburger-components/HamburgerSpring"
 import { HamburgerStand } from "../components/hamburger-components/HamburgerStand"
-*/
+import HamburgerMenuDemo from "./HamburgerMenuDemo"
+import DocsSidebar, { Section } from "@/app/docs/components/DocsSidebar"
+
+
+
+const sections: Section[] = [
+  { id: "spin", label: "Spin" },
+  { id: "squash", label: "Squash" },
+  { id: "slide", label: "Slide" },
+  { id: "cross", label: "Cross" },
+  { id: "elastic", label: "Elastic" },
+  { id: "arrow", label: "Arrow" },
+  { id: "collapse", label: "Collapse" },
+  { id: "rotate", label: "Rotate" },
+  { id: "spring", label: "Spring" },
+  { id: "stand", label: "Stand" },
+];
 
 export default function HamburgerMenusClient() {
   return (
-    <div className="container mx-auto py-8 max-w-5xl">
-      <h1 className="text-3xl font-semibold mb-2">Hamburger Menu Components</h1>
-      <p className="text-muted-foreground mb-8">
-        Togglrr provides a variety of hamburger menu button components with different animation styles. Each component
-        is fully customizable and accessible.
-      </p>
+    <div className="container mx-auto py-8 px-0 max-w-7xl sm:grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="col-span-3">
+        <h1 className="text-3xl font-semibold mb-2">Hamburger Menu Components</h1>
+        <p className="text-muted-foreground mb-8">
+          Togglrr provides a variety of hamburger menu button components with different animation styles. Each component
+          is fully customizable and accessible.
+        </p>
+        <div className="grid gap-4">
+          <div id="spin" className="scroll-mt-24">
+            <HamburgerMenuDemo
+              title="Spin"
+              description="A classic hamburger that spins into an X"
+              component={HamburgerSpin}
+              codeSnippet={`<HamburgerSpin
+  isOpen={isOpen}           
+  toggle={() => setIsOpen(!isOpen)}
+  color="#333"              
+  size={30}                 
+  rounded                   
+  />`}
+            />
+          </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <HamburgerMenuDemo
-          title="Spin"
-          description="A classic hamburger that spins into an X"
-          component={HamburgerSpin}
-          codeSnippet={`<HamburgerSpin
-  isOpen={isOpen}           // Controls open/close state
-  toggle={() => setIsOpen(!isOpen)} // Click handler to toggle
-  color="#333"              // Button color
-  size={30}                 // Size in pixels
-  rounded                   // Rounded corners (boolean)
-/>`}
-        />
+          <div id="squash" className="scroll-mt-24">
+            <HamburgerMenuDemo
+              title="Squash"
+              description="Lines squash and transform into an X"
+              component={HamburgerSquash}
+              codeSnippet={`<HamburgerSquash
+  isOpen={isOpen}           
+  toggle={() => setIsOpen(!isOpen)}
+  color="#333"              
+  size={30}                 
+  rounded                   
+  />`}
+            />
+          </div>
 
-        {/* These demos will be implemented later
-        <HamburgerMenuDemo
-          title="Squash"
-          description="Lines squash and transform into an X"
-          component={HamburgerSquash}
-          codeSnippet={`<HamburgerSquash
-  isOpen={isOpen}           // Controls open/close state
-  toggle={() => setIsOpen(!isOpen)} // Click handler to toggle
-  color="#333"              // Button color
-  size={30}                 // Size in pixels
-  rounded                   // Rounded corners (boolean)
-/>`}
-        />
+          <div id="slide" className="scroll-mt-24">
+            <HamburgerMenuDemo
+              title="Slide"
+              description="Lines slide and fade into an X"
+              component={HamburgerSlide}
+              codeSnippet={`<HamburgerSlide
+  isOpen={isOpen}           
+  toggle={() => setIsOpen(!isOpen)}
+  color="#333"              
+  size={30}                 
+  rounded                   
+  />`}
+            />
+          </div>
 
-        <HamburgerMenuDemo
-          title="Slide"
-          description="Lines slide and fade into an X"
-          component={HamburgerSlide}
-          codeSnippet={`<HamburgerSlide
-  isOpen={isOpen}           // Controls open/close state
-  toggle={() => setIsOpen(!isOpen)} // Click handler to toggle
-  color="#333"              // Button color
-  size={30}                 // Size in pixels
-  rounded                   // Rounded corners (boolean)
-/>`}
-        />
+          <div id="cross" className="scroll-mt-24">
+            <HamburgerMenuDemo
+              title="Cross"
+              description="Clean transformation into a cross"
+              component={HamburgerCross}
+              codeSnippet={`<HamburgerCross
+  isOpen={isOpen}           
+  toggle={() => setIsOpen(!isOpen)}
+  color="#333"              
+  size={30}                 
+  rounded                   
+  />`}
+            />
+          </div>
 
-        <HamburgerMenuDemo
-          title="Cross"
-          description="Clean transformation into a cross"
-          component={HamburgerCross}
-          codeSnippet={`<HamburgerCross
-  isOpen={isOpen}           // Controls open/close state
-  toggle={() => setIsOpen(!isOpen)} // Click handler to toggle
-  color="#333"              // Button color
-  size={30}                 // Size in pixels
-  rounded                   // Rounded corners (boolean)
-/>`}
-        />
+          <div id="elastic" className="scroll-mt-24">
+            <HamburgerMenuDemo
+              title="Elastic"
+              description="Elastic bouncy animation into an X"
+              component={HamburgerElastic}
+              codeSnippet={`<HamburgerElastic
+  isOpen={isOpen}           
+  toggle={() => setIsOpen(!isOpen)}
+  color="#333"              
+  size={30}                 
+  rounded                   
+  />`}
+            />
+          </div>
 
-        <HamburgerMenuDemo
-          title="Elastic"
-          description="Elastic bouncy animation into an X"
-          component={HamburgerElastic}
-          codeSnippet={`<HamburgerElastic
-  isOpen={isOpen}           // Controls open/close state
-  toggle={() => setIsOpen(!isOpen)} // Click handler to toggle
-  color="#333"              // Button color
-  size={30}                 // Size in pixels
-  rounded                   // Rounded corners (boolean)
-/>`}
-        />
-
-        <HamburgerMenuDemo
-          title="Arrow"
-          description="Transforms into an arrow"
-          component={HamburgerArrow}
-          codeSnippet={`<HamburgerArrow
-  isOpen={isOpen}           // Controls open/close state
-  toggle={() => setIsOpen(!isOpen)} // Click handler to toggle
-  color="#333"              // Button color
-  size={30}                 // Size in pixels
-  rounded                   // Rounded corners (boolean)
+          <div id="arrow" className="scroll-mt-24">
+            <HamburgerMenuDemo
+              title="Arrow"
+              description="Transforms into an arrow"
+              component={HamburgerArrow}
+              codeSnippet={`<HamburgerArrow
+  isOpen={isOpen}           
+  toggle={() => setIsOpen(!isOpen)}
+  color="#333"              
+  size={30}                 
+  rounded                   
   direction="left"          // Arrow direction: "left" or "right"
-/>`}
-        />
+  />`}
+            />
+          </div>
 
-        <HamburgerMenuDemo
-          title="Collapse"
-          description="Lines collapse and transform"
-          component={HamburgerCollapse}
-          codeSnippet={`<HamburgerCollapse
-  isOpen={isOpen}           // Controls open/close state
-  toggle={() => setIsOpen(!isOpen)} // Click handler to toggle
-  color="#333"              // Button color
-  size={30}                 // Size in pixels
-  rounded                   // Rounded corners (boolean)
-/>`}
-        />
+          <div id="collapse" className="scroll-mt-24">
+            <HamburgerMenuDemo
+              title="Collapse"
+              description="Lines collapse and transform"
+              component={HamburgerCollapse}
+              codeSnippet={`<HamburgerCollapse
+  isOpen={isOpen}           
+  toggle={() => setIsOpen(!isOpen)}
+  color="#333"              
+  size={30}                 
+  rounded                   
+  />`}
+            />
+          </div>
 
-        <HamburgerMenuDemo
-          title="Rotate"
-          description="Rotates and transforms into an X"
-          component={HamburgerRotate}
-          codeSnippet={`<HamburgerRotate
-  isOpen={isOpen}           // Controls open/close state
-  toggle={() => setIsOpen(!isOpen)} // Click handler to toggle
-  color="#333"              // Button color
-  size={30}                 // Size in pixels
-  rounded                   // Rounded corners (boolean)
-/>`}
-        />
+          <div id="rotate" className="scroll-mt-24">
+            <HamburgerMenuDemo
+              title="Rotate"
+              description="Rotates and transforms into an X"
+              component={HamburgerRotate}
+              codeSnippet={`<HamburgerRotate
+  isOpen={isOpen}           
+  toggle={() => setIsOpen(!isOpen)}
+  color="#333"              
+  size={30}                 
+  rounded                   
+  />`}
+            />
+          </div>
 
-        <HamburgerMenuDemo
-          title="Spring"
-          description="Springy animation into an X"
-          component={HamburgerSpring}
-          codeSnippet={`<HamburgerSpring
-  isOpen={isOpen}           // Controls open/close state
-  toggle={() => setIsOpen(!isOpen)} // Click handler to toggle
-  color="#333"              // Button color
-  size={30}                 // Size in pixels
-  rounded                   // Rounded corners (boolean)
-/>`}
-        />
+          <div id="spring" className="scroll-mt-24">
+            <HamburgerMenuDemo
+              title="Spring"
+              description="Springy animation into an X"
+              component={HamburgerSpring}
+              codeSnippet={`<HamburgerSpring
+  isOpen={isOpen}           
+  toggle={() => setIsOpen(!isOpen)}
+  color="#333"              
+  size={30}                 
+  rounded                   
+  />`}
+            />
+          </div>
 
-        <HamburgerMenuDemo
-          title="Stand"
-          description="Lines stand up and transform"
-          component={HamburgerStand}
-          codeSnippet={`<HamburgerStand
-  isOpen={isOpen}           // Controls open/close state
-  toggle={() => setIsOpen(!isOpen)} // Click handler to toggle
-  color="#333"              // Button color
-  size={30}                 // Size in pixels
-  rounded                   // Rounded corners (boolean)
-/>`}
-        />
-        */}
-      </div>
-
-      <div className="mt-12">
-        <h2 className="text-2xl font-semibold mb-4">Usage Guidelines</h2>
-        <div className="prose prose-zinc dark:prose-invert max-w-none">
-          <h3>Accessibility Considerations</h3>
-          <p>When implementing hamburger menu buttons, ensure they are accessible to all users:</p>
-          <ul>
-            <li>
-              Include proper <code>aria-label</code> and <code>aria-expanded</code> attributes
-            </li>
-            <li>Ensure the button is keyboard accessible</li>
-            <li>Provide sufficient color contrast</li>
-            <li>Consider adding text alongside the icon for clarity</li>
-          </ul>
-
-          <h3>Best Practices</h3>
-          <p>Follow these best practices for optimal user experience:</p>
-          <ul>
-            <li>Keep animations smooth and not too lengthy (300-500ms is ideal)</li>
-            <li>Ensure the button is large enough for touch targets (at least 44x44px)</li>
-            <li>Position the button consistently across your application</li>
-            <li>Consider using a different animation style to match your brand personality</li>
-          </ul>
+          <div id="stand" className="scroll-mt-24">
+            <HamburgerMenuDemo
+              title="Stand"
+              description="Lines stand up and transform"
+              component={HamburgerStand}
+              codeSnippet={`<HamburgerStand
+  isOpen={isOpen}           
+  toggle={() => setIsOpen(!isOpen)}
+  color="#333"              
+  size={30}                 
+  rounded                   
+  />`}
+            />
+          </div>
         </div>
+
+        <div className="mt-12">
+          <h2 className="text-2xl font-semibold mb-4">Usage Guidelines</h2>
+          <div className="prose prose-zinc dark:prose-invert max-w-none">
+            <h3>Accessibility Considerations</h3>
+            <p>When implementing hamburger menu buttons, ensure they are accessible to all users:</p>
+            <ul>
+              <li>
+                Include proper <code>aria-label</code> and <code>aria-expanded</code> attributes
+              </li>
+              <li>Ensure the button is keyboard accessible</li>
+              <li>Provide sufficient color contrast</li>
+              <li>Consider adding text alongside the icon for clarity</li>
+            </ul>
+
+            <h3>Best Practices</h3>
+            <p>Follow these best practices for optimal user experience:</p>
+            <ul>
+              <li>Keep animations smooth and not too lengthy (300-500ms is ideal)</li>
+              <li>Ensure the button is large enough for touch targets (at least 44x44px)</li>
+              <li>Position the button consistently across your application</li>
+              <li>Consider using a different animation style to match your brand personality</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="col-span-1 px-4">
+        <DocsSidebar sections={sections} />
       </div>
     </div>
   )
 }
 
-function HamburgerMenuDemo({ title, description, component: Component, codeSnippet }) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [copied, setCopied] = useState(false)
-  const [showComments, setShowComments] = useState(true)
-
-  const handleCopy = () => {
-    // Remove comments if showComments is false
-    const codeToCopy = showComments
-      ? codeSnippet
-      : codeSnippet
-          .split("\n")
-          .filter((line) => !line.includes("//"))
-          .join("\n")
-
-    navigator.clipboard.writeText(codeToCopy)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
-
-  const processedCode = showComments
-    ? codeSnippet
-    : codeSnippet
-        .split("\n")
-        .filter((line) => !line.includes("//"))
-        .join("\n")
-
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex flex-col space-y-4">
-          <div className="flex justify-center items-center h-32 bg-muted rounded-md">
-            <Component isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} />
-          </div>
-
-          <div className="relative">
-            <div className="absolute right-2 top-2 flex space-x-2 z-10">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setShowComments(!showComments)}
-                className="text-xs h-7 px-2"
-              >
-                {showComments ? "Hide Comments" : "Show Comments"}
-              </Button>
-              <Button variant="outline" size="sm" onClick={handleCopy} className="text-xs h-7 px-2">
-                {copied ? <CheckIcon className="h-3 w-3" /> : <CopyIcon className="h-3 w-3" />}
-              </Button>
-            </div>
-            <div className="font-mono text-sm rounded-md overflow-hidden">
-              <SyntaxHighlighter
-                language="jsx"
-                style={vscDarkPlus}
-                customStyle={{ margin: 0, borderRadius: "0.375rem" }}
-              >
-                {processedCode}
-              </SyntaxHighlighter>
-            </div>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  )
-}
