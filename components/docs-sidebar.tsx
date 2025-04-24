@@ -40,10 +40,6 @@ const navSections: NavSection[] = [
     title: "Examples",
     items: [
       {
-        title: "Spin",
-        href: "/docs/examples/spin",
-      },
-      {
         title: "Hamburger Menus",
         href: "/docs/examples/hamburger-menus",
       },
@@ -93,33 +89,25 @@ export default function DocsSidebar() {
         )}
       >
         {/* Sidebar header */}
-        <div className="p-6 border-b border-border">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="font-bold text-lg">Togglrr</div>
+        <div className="p-6 border-b border-border flex gap-2 items-center">
+          <Link href="/" className="flex items-center">
+            <div className="font-semibold text-lg">Togglrr</div>
           </Link>
-          <div className="text-sm text-muted-foreground mt-1">by Lilian Ada</div>
+          <p className="text-sm text-muted-foreground">by Lilian Ada</p>
         </div>
 
         {/* Sidebar content */}
         <div className="flex-1 overflow-y-auto py-4 px-4">
           {navSections.map((section) => (
-            <div key={section.title} className="mb-6">
-              <button
-                onClick={() => toggleSection(section.title)}
-                className="flex items-center justify-between w-full text-sm font-medium mb-2 text-muted-foreground hover:text-foreground"
+            <div key={section.title} className="mb-12">
+              <h3
+                className="flex items-center justify-between w-full text-sm font-medium mb-2 text-muted px-2"
               >
                 {section.title}
-                <ChevronDown
-                  size={16}
-                  className={cn(
-                    "transition-transform duration-200",
-                    openSections[section.title] ? "transform rotate-180" : "",
-                  )}
-                />
-              </button>
+              </h3>
 
               {openSections[section.title] && (
-                <ul className="space-y-1 pl-2">
+                <ul className="space-y-1">
                   {section.items.map((item) => (
                     <li key={item.href}>
                       <Link
