@@ -8,6 +8,7 @@ import { AnimatedMenuIconCollapse } from "@/app/docs/examples/components/animate
 import { AnimatedMenuIconRotate } from "@/app/docs/examples/components/animatedMenuIcon-components/AnimatedMenuIconRotate";
 import { AnimatedMenuIconSpring } from "@/app/docs/examples/components/animatedMenuIcon-components/AnimatedMenuIconSpring";
 import { AnimatedMenuIconStand } from "@/app/docs/examples/components/animatedMenuIcon-components/AnimatedMenuIconStand";
+import { ChocolateIcon } from "@/app/docs/examples/components/animatedMenuIcon-components/AnimatedMenuIconMore";
 
 export const AnimatedMenuIcon = {
   Spin: AnimatedMenuIconSpin,
@@ -20,6 +21,7 @@ export const AnimatedMenuIcon = {
   Rotate: AnimatedMenuIconRotate,
   Spring: AnimatedMenuIconSpring,
   Stand: AnimatedMenuIconStand,
+  Chocolate: ChocolateIcon,
 };
 
 export default AnimatedMenuIcon;

@@ -34,7 +34,7 @@ export default function DocsSidebar({ sections }: DocsSidebarProps) {
   }, [sections]);
 
   return (
-    <nav aria-label="On this page" className="sticky top-24 hidden md:block ml-12">
+    <nav aria-label="On this page" className="fixed top-24 hidden md:block ml-6">
       <div className="flex items-center gap-2 mb-4 text-muted-foreground font-medium">
         <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4"><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
         <span className="text-sm">On this page</span>

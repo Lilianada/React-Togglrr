@@ -28,13 +28,14 @@ export default function AnimatedMenuIconClient() {
           Togglrr provides a variety of hamburger menu button components with different animation styles. Each component
           is fully customizable and accessible.
         </p>
+        
         <div className="grid gap-4">
           <div id="spin" className="scroll-mt-24">
             <AnimatedMenuIconDemo
               title="Spin"
               description="A classic hamburger that spins into an X"
               component={AnimatedMenuIcon.Spin}
-              codeSnippet={`<HamburgerSpin
+              codeSnippet={`<AnimatedMenuIcon.Spin
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
   color="#333"              
@@ -49,7 +50,7 @@ export default function AnimatedMenuIconClient() {
               title="Squash"
               description="Lines squash and transform into an X"
               component={AnimatedMenuIcon.Squash}
-              codeSnippet={`<HamburgerSquash
+              codeSnippet={`<AnimatedMenuIcon.Squash
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
   color="#333"              
@@ -64,7 +65,7 @@ export default function AnimatedMenuIconClient() {
               title="Slide"
               description="Lines slide and fade into an X"
               component={AnimatedMenuIcon.Slide}
-              codeSnippet={`<HamburgerSlide
+              codeSnippet={`<AnimatedMenuIcon.Slide
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
   color="#333"              
@@ -79,7 +80,7 @@ export default function AnimatedMenuIconClient() {
               title="Cross"
               description="Clean transformation into a cross"
               component={AnimatedMenuIcon.Cross}
-              codeSnippet={`<HamburgerCross
+              codeSnippet={`<AnimatedMenuIcon.Cross
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
   color="#333"              
@@ -94,7 +95,7 @@ export default function AnimatedMenuIconClient() {
               title="Elastic"
               description="Elastic bouncy animation into an X"
               component={AnimatedMenuIcon.Elastic}
-              codeSnippet={`<HamburgerElastic
+              codeSnippet={`<AnimatedMenuIcon.Elastic
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
   color="#333"              
@@ -109,7 +110,7 @@ export default function AnimatedMenuIconClient() {
               title="Arrow"
               description="Transforms into an arrow"
               component={AnimatedMenuIcon.Arrow}
-              codeSnippet={`<HamburgerArrow
+              codeSnippet={`<AnimatedMenuIcon.Arrow
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
   color="#333"              
@@ -125,7 +126,7 @@ export default function AnimatedMenuIconClient() {
               title="Collapse"
               description="Lines collapse and transform"
               component={AnimatedMenuIcon.Collapse}
-              codeSnippet={`<HamburgerCollapse
+              codeSnippet={`<AnimatedMenuIcon.Collapse
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
   color="#333"              
@@ -140,7 +141,7 @@ export default function AnimatedMenuIconClient() {
               title="Rotate"
               description="Rotates and transforms into an X"
               component={AnimatedMenuIcon.Rotate}
-              codeSnippet={`<HamburgerRotate
+              codeSnippet={`<AnimatedMenuIcon.Rotate
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
   color="#333"              
@@ -155,7 +156,7 @@ export default function AnimatedMenuIconClient() {
               title="Spring"
               description="Springy animation into an X"
               component={AnimatedMenuIcon.Spring}
-              codeSnippet={`<HamburgerSpring
+              codeSnippet={`<AnimatedMenuIcon.Spring
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
   color="#333"              
@@ -170,7 +171,7 @@ export default function AnimatedMenuIconClient() {
               title="Stand"
               description="Lines stand up and transform"
               component={AnimatedMenuIcon.Stand}
-              codeSnippet={`<HamburgerStand
+              codeSnippet={`<AnimatedMenuIcon.Stand
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
   color="#333"              
@@ -179,6 +180,7 @@ export default function AnimatedMenuIconClient() {
   />`}
             />
           </div>
+
         </div>
 
         <div className="mt-12">

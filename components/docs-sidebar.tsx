@@ -4,7 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { ModeToggle } from "@/components/mode-toggle"
-import { Github, ChevronDown, Menu, X } from "lucide-react"
+import { Github, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 type NavItem = {
