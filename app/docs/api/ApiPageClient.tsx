@@ -1,15 +1,25 @@
 "use client"
 
+import DocsSidebar, { Section } from "@/app/docs/DocsSidebar"
+
+const sections: Section[] = [
+  { id: "hamburger-component", label: "AnimatedMenuIcon Component" },
+  { id: "animation-types", label: "Animation Types" },
+  { id: "typescript-support", label: "TypeScript Support" },
+  { id: "implementation-details", label: "Implementation Details" },
+];
+
 export default function ApiPageClient() {
   return (
     <div className="container mx-auto py-8 px-0 max-w-7xl sm:grid grid-cols-1 md:grid-cols-4 gap-6">
       <div className="col-span-3">
-      <h1 className="text-3xl font-bold mb-6">API Reference</h1>
+
+      <h1 className="text-3xl font-semibold mb-6">API Reference</h1>
 
       <div className="prose prose-zinc dark:prose-invert max-w-none">
-        <h2 className="text-2xl font-semibold mt-8 mb-4">Hamburger Component</h2>
+        <h2 id="hamburger-component" className="text-2xl font-semibold mt-8 mb-4 scroll-mt-24">AnimatedMenuIcon Component</h2>
         <p>
-          The main component exported by Togglrr is the <code className="font-mono">Hamburger</code> component. It
+          The main component exported by Togglrr is the <code className="font-mono">AnimatedMenuIcon</code> component. It
           accepts the following props:
         </p>
 
@@ -88,7 +98,7 @@ export default function ApiPageClient() {
           </table>
         </div>
 
-        <h2 className="text-2xl font-semibold mt-8 mb-4">Animation Types</h2>
+        <h2 id="animation-types" className="text-2xl font-semibold mt-8 mb-4 scroll-mt-24">Animation Types</h2>
         <p>Togglrr supports the following animation types:</p>
 
         <ul className="list-disc pl-6 space-y-2">
@@ -124,17 +134,17 @@ export default function ApiPageClient() {
           </li>
         </ul>
 
-        <h2 className="text-2xl font-semibold mt-8 mb-4">TypeScript Support</h2>
+        <h2 id="typescript-support" className="text-2xl font-semibold mt-8 mb-4 scroll-mt-24">TypeScript Support</h2>
         <p>Togglrr is written in TypeScript and provides full type definitions:</p>
 
-        <div className="bg-muted p-4 rounded-md my-4 overflow-x-auto font-mono">
-          <pre className="text-sm">{`import { Hamburger, HamburgerProps, AnimationType } from 'togglrr'
+        <div>
+          <pre className="font-mono text-sm bg-secondary text-muted-foreground py-4 px-8">{`import { AnimatedMenuIcon, AnimatedMenuIconProps, AnimationType } from 'togglrr'
 
 // AnimationType is a union type of all available animation types
 const type: AnimationType = 'spin'
 
-// HamburgerProps interface for type checking
-const props: HamburgerProps = {
+// AnimatedMenuIconProps interface for type checking
+const props: AnimatedMenuIconProps = {
   type: 'spin',
   isOpen: false,
   onClick: () => {},
@@ -147,7 +157,7 @@ const props: HamburgerProps = {
 }`}</pre>
         </div>
 
-        <h2 className="text-2xl font-semibold mt-8 mb-4">Implementation Details</h2>
+        <h2 id="implementation-details" className="text-2xl font-semibold mt-8 mb-4 scroll-mt-24">Implementation Details</h2>
 
         <h3 className="text-xl font-semibold mt-6 mb-3">CSS-Based Animations</h3>
         <p>
@@ -155,8 +165,8 @@ const props: HamburgerProps = {
           the "spin" animation is implemented:
         </p>
 
-        <div className="bg-muted p-4 rounded-md my-4 overflow-x-auto font-mono">
-          <pre className="text-sm">{`// CSS for the spin animation
+        <div>
+          <pre className="bg-secondary font-mono text-muted-foreground text-sm px-4 py-8">{`// CSS for the spin animation
 .togglrr-spin {
   .bar {
     transition: transform 0.3s ease;
@@ -184,11 +194,10 @@ const props: HamburgerProps = {
           example of the "elastic" animation:
         </p>
 
-        <div className="bg-muted p-4 rounded-md my-4 overflow-x-auto font-mono">
-          <pre className="text-sm">{`// React component with Framer Motion
+        <pre className="bg-secondary font-mono text-muted-foreground text-sm px-4 py-8">{`// React component with Framer Motion
 import { motion } from 'framer-motion'
 
-export const ElasticHamburger = ({ isOpen, ...props }) => {
+export const ElasticAnimatedMenuIcon = ({ isOpen, ...props }) => {
   const topBarVariants = {
     closed: { rotate: 0, y: 0 },
     open: { rotate: 45, y: 8, transition: { type: 'spring', stiffness: 260, damping: 20 } }
@@ -212,8 +221,10 @@ export const ElasticHamburger = ({ isOpen, ...props }) => {
     </button>
   )
 }`}</pre>
-        </div>
       </div>
+      </div>
+      <div className="col-span-1 px-4">
+        <DocsSidebar sections={sections} />
       </div>
     </div>
   )

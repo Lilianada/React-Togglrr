@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 
-interface HamburgerElasticProps {
+interface AnimatedMenuIconCollapseProps {
   isOpen: boolean
   toggle: () => void
   color?: string
@@ -10,18 +10,28 @@ interface HamburgerElasticProps {
   rounded?: boolean
 }
 
-export function HamburgerElastic({
+export function AnimatedMenuIconCollapse({
   isOpen,
   toggle,
   color = "currentColor",
   size = 32,
   rounded = false,
-}: HamburgerElasticProps) {
-  // Calculate dimensions based on size (match HamburgerSpin)
+}: AnimatedMenuIconCollapseProps) {
+  // Calculate dimensions based on size (match AnimatedMenuIconSpin)
   const barHeight = Math.max(2, size * 0.1)
   const barWidth = size * 0.75
   const barSpacing = size * 0.2
   const barRadius = rounded ? barHeight / 2 : 0
+
+  const barStyle = {
+    height: barHeight,
+    backgroundColor: color,
+    borderRadius: barRadius,
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  }
 
   return (
     <button
@@ -36,77 +46,46 @@ export function HamburgerElastic({
         <motion.span
           initial={false}
           animate={{
-            rotate: isOpen ? 45 : 0,
-            y: isOpen ? 0 : -barSpacing,
+            y: isOpen ? barSpacing * 0.5 : -barSpacing,
+            opacity: isOpen ? 0 : 1,
             width: barWidth,
-            scaleX: isOpen ? 1.3 : 1,
           }}
           transition={{
             type: "spring",
             stiffness: 300,
-            damping: 10,
-            mass: 0.5,
+            damping: 25,
           }}
-          style={{
-            height: barHeight,
-            backgroundColor: color,
-            borderRadius: barRadius,
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            transformOrigin: "center",
-          }}
+          style={barStyle}
         />
         {/* Middle bar */}
         <motion.span
           initial={false}
           animate={{
+            scaleX: isOpen ? 0 : 1,
             opacity: isOpen ? 0 : 1,
             width: barWidth,
-            scaleX: isOpen ? 0.7 : 1,
           }}
           transition={{
             type: "spring",
             stiffness: 300,
-            damping: 10,
-            mass: 0.5,
+            damping: 25,
           }}
-          style={{
-            height: barHeight,
-            backgroundColor: color,
-            borderRadius: barRadius,
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
+          style={barStyle}
         />
         {/* Bottom bar */}
         <motion.span
           initial={false}
           animate={{
-            rotate: isOpen ? -45 : 0,
-            y: isOpen ? 0 : barSpacing,
+            y: isOpen ? -barSpacing * 0.5 : barSpacing,
+            opacity: isOpen ? 0 : 1,
             width: barWidth,
-            scaleX: isOpen ? 1.3 : 1,
           }}
           transition={{
             type: "spring",
             stiffness: 300,
-            damping: 10,
-            mass: 0.5,
+            damping: 25,
           }}
-          style={{
-            height: barHeight,
-            backgroundColor: color,
-            borderRadius: barRadius,
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            transformOrigin: "center",
-          }}
+          style={barStyle}
         />
       </div>
     </button>

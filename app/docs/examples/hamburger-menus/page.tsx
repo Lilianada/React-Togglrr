@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import HamburgerMenusClient from "./HamburgerMenusClient"
+import AnimatedMenuIconClient from "./AnimatedMenuIconClient"
 
 export const metadata: Metadata = {
   title: "Hamburger Menus | Togglrr",
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 }
 
 export default function HamburgerMenusPage() {
-  return <HamburgerMenusClient />
+  return <AnimatedMenuIconClient />
 }

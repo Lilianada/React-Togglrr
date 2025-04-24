@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 
-interface HamburgerStandProps {
+interface AnimatedMenuIconRotateProps {
   isOpen: boolean
   toggle: () => void
   color?: string
@@ -10,18 +10,19 @@ interface HamburgerStandProps {
   rounded?: boolean
 }
 
-export function HamburgerStand({
+export function AnimatedMenuIconRotate({
   isOpen,
   toggle,
   color = "currentColor",
   size = 32,
   rounded = false,
-}: HamburgerStandProps) {
-  // Calculate dimensions based on size (match HamburgerSpin)
+}: AnimatedMenuIconRotateProps) {
+  // Calculate dimensions based on size (match AnimatedMenuIconSpin)
   const barHeight = Math.max(2, size * 0.1)
   const barWidth = size * 0.75
   const barSpacing = size * 0.2
   const barRadius = rounded ? barHeight / 2 : 0
+
   return (
     <button
       onClick={toggle}
@@ -30,26 +31,29 @@ export function HamburgerStand({
       aria-expanded={isOpen}
       style={{ width: size, height: size }}
     >
-      <div className="relative w-full h-full flex items-center justify-center">
+      <motion.div
+        initial={false}
+        animate={{ rotate: isOpen ? 90 : 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 300,
+          damping: 25,
+        }}
+        className="relative w-full h-full flex items-center justify-center"
+        style={{ width: size, height: size }}
+      >
         {/* Top bar */}
         <motion.span
           initial={false}
           animate={{
-            rotate: 0,
-            y: isOpen ? barSpacing : 0,
-            x: isOpen ? barWidth * 0.25 : 0,
+            y: -barSpacing,
             width: barWidth,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 400,
-            damping: 25,
           }}
           style={{
             height: barHeight,
             backgroundColor: color,
             borderRadius: barRadius,
-            position: "absolute" as const,
+            position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
@@ -60,51 +64,38 @@ export function HamburgerStand({
         <motion.span
           initial={false}
           animate={{
-            rotate: isOpen ? 90 : 0,
-            scaleX: isOpen ? 0.7 : 1,
+            opacity: 1,
             width: barWidth,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 400,
-            damping: 25,
           }}
           style={{
             height: barHeight,
             backgroundColor: color,
             borderRadius: barRadius,
-            position: "absolute" as const,
+            position: "absolute",
             top: "50%",
             left: "50%",
-            transform: "translate(-50%, -50%)",
+            transform: "translate(0, 0)",
           }}
         />
         {/* Bottom bar */}
         <motion.span
           initial={false}
           animate={{
-            rotate: 0,
-            y: isOpen ? -barSpacing : 0,
-            x: isOpen ? -barWidth * 0.25 : 0,
+            y: barSpacing,
             width: barWidth,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 400,
-            damping: 25,
           }}
           style={{
             height: barHeight,
             backgroundColor: color,
             borderRadius: barRadius,
-            position: "absolute" as const,
+            position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             transformOrigin: "center",
           }}
         />
-      </div>
+      </motion.div>
     </button>
   )
 }

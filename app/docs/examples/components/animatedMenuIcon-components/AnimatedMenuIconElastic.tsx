@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 
-interface HamburgerArrowProps {
+interface AnimatedMenuIconElasticProps {
   isOpen: boolean
   toggle: () => void
   color?: string
@@ -10,14 +10,14 @@ interface HamburgerArrowProps {
   rounded?: boolean
 }
 
-export function HamburgerArrow({
+export function AnimatedMenuIconElastic({
   isOpen,
   toggle,
   color = "currentColor",
   size = 32,
   rounded = false,
-}: HamburgerArrowProps) {
-  // Calculate dimensions based on size (match HamburgerSpin)
+}: AnimatedMenuIconElasticProps) {
+  // Calculate dimensions based on size (match AnimatedMenuIconSpin)
   const barHeight = Math.max(2, size * 0.1)
   const barWidth = size * 0.75
   const barSpacing = size * 0.2
@@ -38,13 +38,14 @@ export function HamburgerArrow({
           animate={{
             rotate: isOpen ? 45 : 0,
             y: isOpen ? 0 : -barSpacing,
-            x: isOpen ? barWidth * 0.2 : 0,
             width: barWidth,
+            scaleX: isOpen ? 1.3 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 400,
-            damping: 25,
+            stiffness: 300,
+            damping: 10,
+            mass: 0.5,
           }}
           style={{
             height: barHeight,
@@ -54,7 +55,7 @@ export function HamburgerArrow({
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            transformOrigin: "left center",
+            transformOrigin: "center",
           }}
         />
         {/* Middle bar */}
@@ -63,11 +64,13 @@ export function HamburgerArrow({
           animate={{
             opacity: isOpen ? 0 : 1,
             width: barWidth,
+            scaleX: isOpen ? 0.7 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 400,
-            damping: 25,
+            stiffness: 300,
+            damping: 10,
+            mass: 0.5,
           }}
           style={{
             height: barHeight,
@@ -85,13 +88,14 @@ export function HamburgerArrow({
           animate={{
             rotate: isOpen ? -45 : 0,
             y: isOpen ? 0 : barSpacing,
-            x: isOpen ? barWidth * 0.2 : 0,
             width: barWidth,
+            scaleX: isOpen ? 1.3 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 400,
-            damping: 25,
+            stiffness: 300,
+            damping: 10,
+            mass: 0.5,
           }}
           style={{
             height: barHeight,
@@ -101,7 +105,7 @@ export function HamburgerArrow({
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            transformOrigin: "left center",
+            transformOrigin: "center",
           }}
         />
       </div>

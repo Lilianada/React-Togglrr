@@ -3,12 +3,25 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
+import DocsSidebar, { Section } from "@/app/docs/DocsSidebar"
+
+const sections: Section[] = [
+  { id: "installation", label: "Installation" },
+  { id: "menu-icons", label: "Animated Menu Icons" },
+  { id: "off-canvas-panels", label: "Off-Canvas Panels" },
+  { id: "combining-icons-panels", label: "Combining Icons & Panels" },
+  { id: "best-practices", label: "Best Practices" },
+  { id: "references", label: "References & Inspiration" },
+  { id: "next-steps", label: "Next Steps" },
+];
+
 export default function DocsPageClient() {
   return (
     <div className="container mx-auto py-8 px-0 max-w-7xl sm:grid grid-cols-1 md:grid-cols-4 gap-6">
       <div className="col-span-3">
+
         <h1 className="text-3xl font-semibold mb-2">Getting Started</h1>
-        <p className="text-muted-foreground mb-8">Learn how to get started with Togglrr hamburger menu components.</p>
+        <p className="text-muted-foreground mb-8">Togglrr is a library of beautiful, accessible, and customizable animated menu icons and off-canvas (menu panel) components for React. Use animated icons as menu triggers and pair them with off-canvas panels for modern navigation experiences.</p>
 
         <div className="space-y-8">
           <section>
@@ -28,62 +41,45 @@ export default function DocsPageClient() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">Basic Usage</h2>
+            <h2 className="text-2xl font-semibold mb-4">Animated Menu Icons</h2>
             <p className="mb-4">
-              Import the hamburger menu component you want to use and add it to your React component:
+              Togglrr offers a variety of animated menu icon components (sometimes called hamburger icons) that can be used as triggers for menus or panels. Each icon is a separate React component, fully customizable and accessible.
             </p>
             <div className="bg-secondary p-4 rounded-md mb-4 font-mono text-sm">
-              <pre>{`import { useState } from 'react';
-import { Spin } from 'togglrr';
+              <pre>{`import { AnimatedMenuIcon } from 'togglrr';
+import { useState } from 'react';
 
 function MyComponent() {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-
+  const [open, setOpen] = useState(false);
   return (
-    <div>
-      <Spin isOpen={isOpen} toggle={toggle} />
-      {isOpen && <div>Menu content goes here</div>}
-    </div>
+    <AnimatedMenuIcon.Spin isOpen={open} toggle={() => setOpen(!open)} />
   );
 }`}</pre>
             </div>
+            <p className="mb-2">Available icons include: <strong>Spin, Squash, Slide, Cross, Elastic, Arrow, Collapse, Rotate, Spring, Stand</strong>.</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">Building a Robust Hamburger Menu Library</h2>
+            <h2 className="text-2xl font-semibold mb-4">Off-Canvas Panels</h2>
+            <p className="mb-4">
+              Off-canvas panels are sliding menu panels that appear from the side of the screen. They are perfect for navigation menus, settings, or any content you want to show in a temporary panel.
+            </p>
+            <div className="bg-secondary p-4 rounded-md mb-4 font-mono text-sm">
+              <pre>{`import { OffCanvas } from 'togglrr';
+import { useState } from 'react';
 
-            <h3 className="text-xl font-medium mt-6 mb-3">Modular Component Design</h3>
-            <ul className="list-disc pl-5 space-y-2 text-secondary-foreground mb-4">
-              <li>
-                <strong className="text-foreground">Separate Each Style:</strong> Each hamburger icon is its own React
-                component (e.g., Classic, Arrow, Squash, Spin, Bun, etc.).
-              </li>
-              <li>
-                <strong className="text-foreground">Reusable Animation Logic:</strong> Uses CSS transitions, keyframes, or
-                lightweight libraries like Framer Motion for advanced but performant animation.
-              </li>
-              <li>
-                <strong className="text-foreground">Customizable Props:</strong> Allows props for color, size, animation
-                speed, thickness, border radius, etc., so users can tweak the look and feel.
-              </li>
-            </ul>
-
-            <h3 className="text-xl font-medium mt-6 mb-3">Animation Techniques</h3>
-            <ul className="list-disc pl-5 space-y-2 text-secondary-foreground mb-4">
-              <li>
-                <strong className="text-foreground">CSS-Driven Animations:</strong> Favors CSS transitions and keyframes
-                for most icons (very lightweight, no runtime JS).
-              </li>
-              <li>
-                <strong className="text-foreground">Framer Motion for Complex Effects:</strong> For more advanced morphs
-                or bouncy effects, uses Framer Motion (still lightweight and tree-shakeable).
-              </li>
-              <li>
-                <strong className="text-foreground">Conditional Classes:</strong> Toggles classes based on isOpen state to
-                trigger animations.
-              </li>
-            </ul>
+function MyComponent() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <button onClick={() => setOpen(true)}>Open Menu</button>
+      <OffCanvas isOpen={open} onClose={() => setOpen(false)}>
+        <nav>Menu content here</nav>
+      </OffCanvas>
+    </>
+  );
+}`}</pre>
+            </div>
 
             <h3 className="text-xl font-medium mt-6 mb-3">Performance & Bundle Size</h3>
             <ul className="list-disc pl-5 space-y-2 text-secondary-foreground mb-4">
@@ -107,7 +103,7 @@ function MyComponent() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">How Users Can Test Different Hamburger Menus</h2>
+            <h2 className="text-2xl font-semibold mb-4">How Users Can Test Different AnimatedMenuIcon Menus</h2>
 
             <h3 className="text-xl font-medium mt-6 mb-3">Demo Playground in Docs</h3>
             <ul className="list-disc pl-5 space-y-2 text-secondary-foreground mb-4">
@@ -238,6 +234,11 @@ const [open, setOpen] = useState(false);
           </section>
         </div>
       </div>
+    
+
+    <div className="col-span-1 px-4">
+      <DocsSidebar sections={sections} />
+    </div>
     </div>
   )
 }

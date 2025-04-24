@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 
-interface HamburgerSpinProps {
+interface AnimatedMenuIconenuIconenuIconenuIconenuIconenuIconenuIconenuIconArrowProps {
   isOpen: boolean
   toggle: () => void
   color?: string
@@ -10,14 +10,14 @@ interface HamburgerSpinProps {
   rounded?: boolean
 }
 
-export function HamburgerSpin({
+export function AnimatedMenuIconArrow({
   isOpen,
   toggle,
   color = "currentColor",
   size = 32,
   rounded = false,
-}: HamburgerSpinProps) {
-  // Calculate dimensions based on size
+}: AnimatedMenuIconArrowProps) {
+  // Calculate dimensions based on size (match AnimatedMenuIconSpin)
   const barHeight = Math.max(2, size * 0.1)
   const barWidth = size * 0.75
   const barSpacing = size * 0.2
@@ -38,6 +38,7 @@ export function HamburgerSpin({
           animate={{
             rotate: isOpen ? 45 : 0,
             y: isOpen ? 0 : -barSpacing,
+            x: isOpen ? barWidth * 0.2 : 0,
             width: barWidth,
           }}
           transition={{
@@ -50,16 +51,18 @@ export function HamburgerSpin({
             backgroundColor: color,
             borderRadius: barRadius,
             position: "absolute",
-            transformOrigin: "center",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            transformOrigin: "left center",
           }}
         />
-
         {/* Middle bar */}
         <motion.span
           initial={false}
           animate={{
             opacity: isOpen ? 0 : 1,
-            width: isOpen ? 0 : barWidth,
+            width: barWidth,
           }}
           transition={{
             type: "spring",
@@ -71,15 +74,18 @@ export function HamburgerSpin({
             backgroundColor: color,
             borderRadius: barRadius,
             position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
           }}
         />
-
         {/* Bottom bar */}
         <motion.span
           initial={false}
           animate={{
             rotate: isOpen ? -45 : 0,
             y: isOpen ? 0 : barSpacing,
+            x: isOpen ? barWidth * 0.2 : 0,
             width: barWidth,
           }}
           transition={{
@@ -92,7 +98,10 @@ export function HamburgerSpin({
             backgroundColor: color,
             borderRadius: barRadius,
             position: "absolute",
-            transformOrigin: "center",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            transformOrigin: "left center",
           }}
         />
       </div>

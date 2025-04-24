@@ -1,17 +1,8 @@
 "use client"
 
-import { HamburgerSpin } from "../components/hamburger-components/HamburgerSpin"
-import { HamburgerSquash } from "../components/hamburger-components/HamburgerSquash"
-import { HamburgerSlide } from "../components/hamburger-components/HamburgerSlide"
-import { HamburgerCross } from "../components/hamburger-components/HamburgerCross"
-import { HamburgerElastic } from "../components/hamburger-components/HamburgerElastic"
-import { HamburgerArrow } from "../components/hamburger-components/HamburgerArrow"
-import { HamburgerCollapse } from "../components/hamburger-components/HamburgerCollapse"
-import { HamburgerRotate } from "../components/hamburger-components/HamburgerRotate"
-import { HamburgerSpring } from "../components/hamburger-components/HamburgerSpring"
-import { HamburgerStand } from "../components/hamburger-components/HamburgerStand"
-import HamburgerMenuDemo from "./HamburgerMenuDemo"
-import DocsSidebar, { Section } from "@/app/docs/components/DocsSidebar"
+import { AnimatedMenuIcon } from "@/components/AnimatedMenuIcon";
+import AnimatedMenuIconDemo from "./AnimatedMenuIconsDemo"
+import DocsSidebar, { Section } from "@/app/docs/DocsSidebar"
 
 
 
@@ -28,7 +19,7 @@ const sections: Section[] = [
   { id: "stand", label: "Stand" },
 ];
 
-export default function HamburgerMenusClient() {
+export default function AnimatedMenuIconClient() {
   return (
     <div className="container mx-auto py-8 px-0 max-w-7xl sm:grid grid-cols-1 md:grid-cols-4 gap-8">
       <div className="col-span-3">
@@ -39,10 +30,10 @@ export default function HamburgerMenusClient() {
         </p>
         <div className="grid gap-4">
           <div id="spin" className="scroll-mt-24">
-            <HamburgerMenuDemo
+            <AnimatedMenuIconDemo
               title="Spin"
               description="A classic hamburger that spins into an X"
-              component={HamburgerSpin}
+              component={AnimatedMenuIcon.Spin}
               codeSnippet={`<HamburgerSpin
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
@@ -54,10 +45,10 @@ export default function HamburgerMenusClient() {
           </div>
 
           <div id="squash" className="scroll-mt-24">
-            <HamburgerMenuDemo
+            <AnimatedMenuIconDemo
               title="Squash"
               description="Lines squash and transform into an X"
-              component={HamburgerSquash}
+              component={AnimatedMenuIcon.Squash}
               codeSnippet={`<HamburgerSquash
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
@@ -69,10 +60,10 @@ export default function HamburgerMenusClient() {
           </div>
 
           <div id="slide" className="scroll-mt-24">
-            <HamburgerMenuDemo
+            <AnimatedMenuIconDemo
               title="Slide"
               description="Lines slide and fade into an X"
-              component={HamburgerSlide}
+              component={AnimatedMenuIcon.Slide}
               codeSnippet={`<HamburgerSlide
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
@@ -84,10 +75,10 @@ export default function HamburgerMenusClient() {
           </div>
 
           <div id="cross" className="scroll-mt-24">
-            <HamburgerMenuDemo
+            <AnimatedMenuIconDemo
               title="Cross"
               description="Clean transformation into a cross"
-              component={HamburgerCross}
+              component={AnimatedMenuIcon.Cross}
               codeSnippet={`<HamburgerCross
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
@@ -99,10 +90,10 @@ export default function HamburgerMenusClient() {
           </div>
 
           <div id="elastic" className="scroll-mt-24">
-            <HamburgerMenuDemo
+            <AnimatedMenuIconDemo
               title="Elastic"
               description="Elastic bouncy animation into an X"
-              component={HamburgerElastic}
+              component={AnimatedMenuIcon.Elastic}
               codeSnippet={`<HamburgerElastic
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
@@ -114,10 +105,10 @@ export default function HamburgerMenusClient() {
           </div>
 
           <div id="arrow" className="scroll-mt-24">
-            <HamburgerMenuDemo
+            <AnimatedMenuIconDemo
               title="Arrow"
               description="Transforms into an arrow"
-              component={HamburgerArrow}
+              component={AnimatedMenuIcon.Arrow}
               codeSnippet={`<HamburgerArrow
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
@@ -130,10 +121,10 @@ export default function HamburgerMenusClient() {
           </div>
 
           <div id="collapse" className="scroll-mt-24">
-            <HamburgerMenuDemo
+            <AnimatedMenuIconDemo
               title="Collapse"
               description="Lines collapse and transform"
-              component={HamburgerCollapse}
+              component={AnimatedMenuIcon.Collapse}
               codeSnippet={`<HamburgerCollapse
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
@@ -145,10 +136,10 @@ export default function HamburgerMenusClient() {
           </div>
 
           <div id="rotate" className="scroll-mt-24">
-            <HamburgerMenuDemo
+            <AnimatedMenuIconDemo
               title="Rotate"
               description="Rotates and transforms into an X"
-              component={HamburgerRotate}
+              component={AnimatedMenuIcon.Rotate}
               codeSnippet={`<HamburgerRotate
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
@@ -160,10 +151,10 @@ export default function HamburgerMenusClient() {
           </div>
 
           <div id="spring" className="scroll-mt-24">
-            <HamburgerMenuDemo
+            <AnimatedMenuIconDemo
               title="Spring"
               description="Springy animation into an X"
-              component={HamburgerSpring}
+              component={AnimatedMenuIcon.Spring}
               codeSnippet={`<HamburgerSpring
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}
@@ -175,10 +166,10 @@ export default function HamburgerMenusClient() {
           </div>
 
           <div id="stand" className="scroll-mt-24">
-            <HamburgerMenuDemo
+            <AnimatedMenuIconDemo
               title="Stand"
               description="Lines stand up and transform"
-              component={HamburgerStand}
+              component={AnimatedMenuIcon.Stand}
               codeSnippet={`<HamburgerStand
   isOpen={isOpen}           
   toggle={() => setIsOpen(!isOpen)}

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 
-interface HamburgerSpringProps {
+interface AnimatedMenuIconSlideProps {
   isOpen: boolean
   toggle: () => void
   color?: string
@@ -10,18 +10,19 @@ interface HamburgerSpringProps {
   rounded?: boolean
 }
 
-export function HamburgerSpring({
+export function AnimatedMenuIconSlide({
   isOpen,
   toggle,
   color = "currentColor",
   size = 32,
   rounded = false,
-}: HamburgerSpringProps) {
-  // Calculate dimensions based on size (match HamburgerSpin)
+}: AnimatedMenuIconSlideProps) {
+  // Calculate dimensions based on size (match AnimatedMenuIconSpin)
   const barHeight = Math.max(2, size * 0.1)
   const barWidth = size * 0.75
   const barSpacing = size * 0.2
   const barRadius = rounded ? barHeight / 2 : 0
+
   return (
     <button
       onClick={toggle}
@@ -35,45 +36,43 @@ export function HamburgerSpring({
         <motion.span
           initial={false}
           animate={{
-            rotate: isOpen ? 45 : 0,
-            y: isOpen ? 0 : -barSpacing,
+            x: isOpen ? barWidth * 0.2 : 0,
+            y: -barSpacing,
             width: barWidth,
-            scale: isOpen ? 1.1 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 500,
-            damping: 18,
+            stiffness: 300,
+            damping: 25,
           }}
           style={{
             height: barHeight,
             backgroundColor: color,
             borderRadius: barRadius,
-            position: "absolute" as const,
+            position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            transformOrigin: "center",
+            transformOrigin: "center left",
           }}
         />
         {/* Middle bar */}
         <motion.span
           initial={false}
           animate={{
-            opacity: isOpen ? 0 : 1,
+            x: isOpen ? -barWidth * 0.2 : 0,
             width: barWidth,
-            scale: isOpen ? 0.8 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 500,
-            damping: 18,
+            stiffness: 300,
+            damping: 25,
           }}
           style={{
             height: barHeight,
             backgroundColor: color,
             borderRadius: barRadius,
-            position: "absolute" as const,
+            position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
@@ -83,25 +82,24 @@ export function HamburgerSpring({
         <motion.span
           initial={false}
           animate={{
-            rotate: isOpen ? -45 : 0,
-            y: isOpen ? 0 : barSpacing,
+            x: isOpen ? barWidth * 0.2 : 0,
+            y: barSpacing,
             width: barWidth,
-            scale: isOpen ? 1.1 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 500,
-            damping: 18,
+            stiffness: 300,
+            damping: 25,
           }}
           style={{
             height: barHeight,
             backgroundColor: color,
             borderRadius: barRadius,
-            position: "absolute" as const,
+            position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            transformOrigin: "center",
+            transformOrigin: "center left",
           }}
         />
       </div>

@@ -20,12 +20,12 @@ const spaceGrotesk = Space_Grotesk({
 // Just use the variables directly
 
 export const metadata: Metadata = {
-  title: "Togglrr - React Hamburger Menu Components",
-  description: "Beautiful, accessible, and customizable hamburger menu components for React",
+  title: "Togglrr - React Components",
+  description: "Beautiful, accessible, and customizable components for React",
   icons: {
     icon: "/favicon.ico",
   },
-    generator: 'v0.dev'
+    generator: 'Lily\'s Lab'
 }
 
 export default function RootLayout({

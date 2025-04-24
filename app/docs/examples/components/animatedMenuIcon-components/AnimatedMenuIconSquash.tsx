@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 
-interface HamburgerCollapseProps {
+interface AnimatedMenuIconSquashProps {
   isOpen: boolean
   toggle: () => void
   color?: string
@@ -10,28 +10,18 @@ interface HamburgerCollapseProps {
   rounded?: boolean
 }
 
-export function HamburgerCollapse({
+export function AnimatedMenuIconSquash({
   isOpen,
   toggle,
   color = "currentColor",
   size = 32,
   rounded = false,
-}: HamburgerCollapseProps) {
-  // Calculate dimensions based on size (match HamburgerSpin)
+}: AnimatedMenuIconSquashProps) {
+  // Calculate dimensions based on size (match AnimatedMenuIconSpin)
   const barHeight = Math.max(2, size * 0.1)
   const barWidth = size * 0.75
   const barSpacing = size * 0.2
   const barRadius = rounded ? barHeight / 2 : 0
-
-  const barStyle = {
-    height: barHeight,
-    backgroundColor: color,
-    borderRadius: barRadius,
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-  }
 
   return (
     <button
@@ -46,48 +36,79 @@ export function HamburgerCollapse({
         <motion.span
           initial={false}
           animate={{
-            y: isOpen ? barSpacing * 0.5 : -barSpacing,
-            opacity: isOpen ? 0 : 1,
+            rotate: isOpen ? 45 : 0,
+            y: isOpen ? 0 : -barSpacing,
             width: barWidth,
+            scaleX: isOpen ? 1.2 : 1,
+            scaleY: isOpen ? 0.7 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 300,
+            stiffness: 400,
             damping: 25,
           }}
-          style={barStyle}
+          style={{
+            height: barHeight,
+            backgroundColor: color,
+            borderRadius: barRadius,
+            position: "absolute" as const,
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            transformOrigin: "center",
+          }}
         />
         {/* Middle bar */}
         <motion.span
           initial={false}
           animate={{
-            scaleX: isOpen ? 0 : 1,
             opacity: isOpen ? 0 : 1,
             width: barWidth,
+            scaleY: isOpen ? 0.7 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 300,
+            stiffness: 400,
             damping: 25,
           }}
-          style={barStyle}
+          style={{
+            height: barHeight,
+            backgroundColor: color,
+            borderRadius: barRadius,
+            position: "absolute" as const,
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
         />
         {/* Bottom bar */}
         <motion.span
           initial={false}
           animate={{
-            y: isOpen ? -barSpacing * 0.5 : barSpacing,
-            opacity: isOpen ? 0 : 1,
+            rotate: isOpen ? -45 : 0,
+            y: isOpen ? 0 : barSpacing,
             width: barWidth,
+            scaleX: isOpen ? 1.2 : 1,
+            scaleY: isOpen ? 0.7 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 300,
+            stiffness: 400,
             damping: 25,
           }}
-          style={barStyle}
+          style={{
+            height: barHeight,
+            backgroundColor: color,
+            borderRadius: barRadius,
+            position: "absolute" as const,
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            transformOrigin: "center",
+          }}
         />
       </div>
     </button>
   )
 }
+

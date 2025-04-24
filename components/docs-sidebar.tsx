@@ -40,7 +40,7 @@ const navSections: NavSection[] = [
     title: "Examples",
     items: [
       {
-        title: "Hamburger Menus",
+        title: "AnimatedMenuIcon Menus",
         href: "/docs/examples/hamburger-menus",
       },
       {

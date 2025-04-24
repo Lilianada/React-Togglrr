@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 
-interface HamburgerCrossProps {
+interface AnimatedMenuIconSpringProps {
   isOpen: boolean
   toggle: () => void
   color?: string
@@ -10,19 +10,18 @@ interface HamburgerCrossProps {
   rounded?: boolean
 }
 
-export function HamburgerCross({
+export function AnimatedMenuIconSpring({
   isOpen,
   toggle,
   color = "currentColor",
   size = 32,
   rounded = false,
-}: HamburgerCrossProps) {
-  // Calculate dimensions based on size (match HamburgerSpin)
+}: AnimatedMenuIconSpringProps) {
+  // Calculate dimensions based on size (match AnimatedMenuIconSpin)
   const barHeight = Math.max(2, size * 0.1)
   const barWidth = size * 0.75
   const barSpacing = size * 0.2
   const barRadius = rounded ? barHeight / 2 : 0
-
   return (
     <button
       onClick={toggle}
@@ -39,17 +38,18 @@ export function HamburgerCross({
             rotate: isOpen ? 45 : 0,
             y: isOpen ? 0 : -barSpacing,
             width: barWidth,
+            scale: isOpen ? 1.1 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 400,
-            damping: 25,
+            stiffness: 500,
+            damping: 18,
           }}
           style={{
             height: barHeight,
             backgroundColor: color,
             borderRadius: barRadius,
-            position: "absolute",
+            position: "absolute" as const,
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
@@ -62,17 +62,18 @@ export function HamburgerCross({
           animate={{
             opacity: isOpen ? 0 : 1,
             width: barWidth,
+            scale: isOpen ? 0.8 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 400,
-            damping: 25,
+            stiffness: 500,
+            damping: 18,
           }}
           style={{
             height: barHeight,
             backgroundColor: color,
             borderRadius: barRadius,
-            position: "absolute",
+            position: "absolute" as const,
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
@@ -85,17 +86,18 @@ export function HamburgerCross({
             rotate: isOpen ? -45 : 0,
             y: isOpen ? 0 : barSpacing,
             width: barWidth,
+            scale: isOpen ? 1.1 : 1,
           }}
           transition={{
             type: "spring",
-            stiffness: 400,
-            damping: 25,
+            stiffness: 500,
+            damping: 18,
           }}
           style={{
             height: barHeight,
             backgroundColor: color,
             borderRadius: barRadius,
-            position: "absolute",
+            position: "absolute" as const,
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
